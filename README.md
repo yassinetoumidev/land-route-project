@@ -5,6 +5,8 @@ You must have a JAVA_HOME environment variable set pointing to an existing Java 
 Linux/OS X:
 
 ./mvnw clean install spring-boot:run
+
+
 Windows:
 
 mvnw clean install spring-boot:run
