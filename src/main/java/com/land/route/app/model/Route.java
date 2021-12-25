@@ -1,19 +1,14 @@
 package com.land.route.app.model;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.List;
+@Data
+@AllArgsConstructor
 public class Route {
 
-	private List<Vertex> route;
+	private final List<String> route;
 
-	public List<Vertex> getRoute() {
-		return route;
-	}
-
-	public void setRoute(List<Vertex> route) {
-		this.route = route;
-	}
-	
-	
-	
 }

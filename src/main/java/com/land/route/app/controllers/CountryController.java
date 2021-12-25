@@ -20,22 +20,22 @@ import com.land.route.app.services.CountryService;
 @CrossOrigin("*")
 @RequestMapping("/routing")
 public class CountryController {
-	@Autowired
-	private CountryService countryService;
-	@GetMapping("/{origin}/{destination}")
-	public Route getRoutes(@PathVariable String origin , @PathVariable String destination) throws CrossNotFoundException, CountryNotFoundException {
-		return countryService.getRoute(origin , destination);
-	}
-	
-	
-	
-	 @ExceptionHandler(CrossNotFoundException.class)
-	    protected ResponseEntity<Object> handleCrossNotFoundException(CrossNotFoundException e, WebRequest request) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-	    }
-	 
-	 @ExceptionHandler(CountryNotFoundException.class)
-	    protected ResponseEntity<Object> handleCountryNotFoundException(CountryNotFoundException e, WebRequest request) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-	    }
+    @Autowired
+    private CountryService countryService;
+
+    @GetMapping("/{origin}/{destination}")
+    public Route getRoutes(@PathVariable String origin, @PathVariable String destination) throws CrossNotFoundException, CountryNotFoundException {
+        return countryService.getRoute(origin, destination);
+    }
+
+
+    @ExceptionHandler(CrossNotFoundException.class)
+    protected ResponseEntity<Object> handleCrossNotFoundException(CrossNotFoundException e, WebRequest request) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(CountryNotFoundException.class)
+    protected ResponseEntity<Object> handleCountryNotFoundException(CountryNotFoundException e, WebRequest request) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }
